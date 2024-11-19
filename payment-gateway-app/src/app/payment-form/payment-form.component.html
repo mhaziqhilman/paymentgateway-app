@@ -1,1 +1,181 @@
-<p>payment-form works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    /* Container styling */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      margin: 0;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    /* Header styling */
+    .payment-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .payment-header h1 {
+      color: #333;
+    }
+
+    /* Form styling */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    input, select {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    .card-info-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-info-row > div {
+      width: 48%;
+    }
+
+    /* Button styling */
+    .submit-button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Payment Header -->
+    <header class="payment-header">
+      <h1>Secure Payment</h1>
+      <p>Complete your payment below</p>
+    </header>
+
+    <!-- Payment Form -->
+    <form id="payment-form">
+      
+      <!-- Card Details Section -->
+      <section class="card-details">
+        <h2>Card Information</h2>
+        
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+
+        <label for="card-name">Name on Card</label>
+        <input type="text" id="card-name" placeholder="Full Name" required>
+
+        <div class="card-info-row">
+          <div>
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry-date" placeholder="MM/YY" required>
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="123" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- Billing Details Section -->
+      <section class="billing-details">
+        <h2>Billing Information</h2>
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+
+        <label for="address">Billing Address</label>
+        <input type="text" id="address" placeholder="Street Address" required>
+        
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="City" required>
+        
+        <label for="postal-code">Postal Code</label>
+        <input type="text" id="postal-code" placeholder="ZIP/Postal Code" required>
+
+        <label for="country">Country</label>
+        <select id="country" required>
+          <option value="">Select Country</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Singapore">Singapore</option>
+          <!-- Add other countries as needed -->
+        </select>
+      </section>
+
+      <!-- Payment Summary Section -->
+      <section class="payment-summary">
+        <h2>Order Summary</h2>
+        <p>Total Amount: <span id="total-amount">RM 100.00</span></p>
+      </section>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button">Pay Now</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("payment-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Basic validation example
+      const cardNumber = document.getElementById("card-number").value;
+      const expiryDate = document.getElementById("expiry-date").value;
+      const cvv = document.getElementById("cvv").value;
+
+      if (!cardNumber || cardNumber.length < 16) {
+        alert("Please enter a valid card number.");
+        return;
+      }
+      
+      if (!expiryDate || expiryDate.length < 5) {
+        alert("Please enter a valid expiry date.");
+        return;
+      }
+      
+      if (!cvv || cvv.length < 3) {
+        alert("Please enter a valid CVV.");
+        return;
+      }
+
+      // Add more validation as needed
+      alert("Payment processed successfully!");
+    });
+  </script>
+</body>
+</html>
