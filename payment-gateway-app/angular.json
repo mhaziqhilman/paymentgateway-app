@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "payment-gateway-client": {
+    "payment-gateway-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/payment-gateway-client",
+            "outputPath": "dist/payment-gateway-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "payment-gateway-client:build:production"
+              "buildTarget": "payment-gateway-app:build:production"
             },
             "development": {
-              "buildTarget": "payment-gateway-client:build:development"
+              "buildTarget": "payment-gateway-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,8 +103,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "e00f09f9-6cfa-4d7b-baa4-68db91308a61"
   }
 }

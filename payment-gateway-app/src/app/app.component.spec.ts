@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'payment-gateway-client' title`, () => {
+  it(`should have the 'payment-gateway-app' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('payment-gateway-client');
+    expect(app.title).toEqual('payment-gateway-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, payment-gateway-client');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, payment-gateway-app');
   });
 });
